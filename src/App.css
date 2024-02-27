@@ -1,0 +1,72 @@
+.app {
+    padding: 2rem;
+}
+
+/* Cabeçalho/Banner */
+
+.banner {
+    background-color: var(--azul);
+    text-align: center;
+}
+
+.banner img {
+    max-height: 200px;
+    max-width: 100%;
+}
+
+/* Forms */
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto; /* Fácil centralização de conteúdo */
+    padding: 1.5rem;
+    box-shadow: var(--azul-claro) 0px 7px 29px 0px;
+}
+
+.form-container form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-imagens {
+    margin-bottom: 20px;
+}
+
+.inputs-container {
+    min-height: 280px;
+}
+
+.inputs-container label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.preview-imagem {
+    width: 150px;
+    height: 150px;
+}
+
+/* Actions */
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.actions button {
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--azul-claro);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.actions button:hover {
+    background-color: var(--azul);
+}

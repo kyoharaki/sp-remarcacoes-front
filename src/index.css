@@ -1,0 +1,21 @@
+:root {
+    /* CORES */
+    --azul: #0092df;
+    --azul-claro: #51bfe6;
+    --amarelo: #fff200;
+    --branco: #fff;
+    --preto: #000;
+    --cinza: #ccc;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--preto);
+}
+
+body {
+    background-color: var(--branco);
+}

@@ -1,0 +1,131 @@
+.app {
+    padding: 2rem;
+}
+
+.page {
+    height: 11in;
+    width: 8.5in;
+    margin: 0 auto;
+    padding: 1.2rem;
+    border: 1px solid black;
+}
+
+.pdf {
+    height: 95%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+    border: 1px solid black;
+}
+
+/* BANNER */
+
+.banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-img, .logo-img img {
+    height: 100px;
+    width: 100px;
+}
+
+.titulo {
+    text-align: center;
+    width: 75%;
+}
+
+.remarcado-box {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 5px;
+}
+
+.remarcado-box h3 {
+    color: white;
+}
+
+.informacao-box {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+/* DADOS DO LAUDO */
+
+.dados-laudo {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.dados-laudo-titulo {
+    font-weight: bold;
+    margin: 0px 5px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dados-laudo-info {
+    margin: 0px 15px 0px 5px;
+}
+
+/* FOTOS DO LAUDO */
+
+.fotos-laudo {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    margin: 15px auto;
+    gap: 25px;
+}
+
+.fotos-laudo-content {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.fotos-laudo-content img {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+/* DECALQUE */
+
+.decalque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.decalque-box {
+    border: 1px solid black;
+    width: 90%;
+    height: 70px;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px auto;
+}
+
+.rodape p {
+    margin-bottom: 2px;
+}

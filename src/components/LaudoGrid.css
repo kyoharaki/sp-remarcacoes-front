@@ -1,0 +1,18 @@
+.react-icons {
+  cursor: pointer;
+}
+
+.laudo-grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.filtro-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+}
