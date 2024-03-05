@@ -38,6 +38,8 @@ const formTemplate = {
     dataLaudo: "",
     horaLaudo: "",
     inputOficio: "",
+    endereco: "",
+    cnpjLoja: "",
 };
 
 function TodoForm({url, handleAuth}) {
@@ -64,11 +66,17 @@ function TodoForm({url, handleAuth}) {
         });
     };
 
-    const handleEnviar = (data) => {
-        data.data.dataLaudo = moment().format('YYYY-MM-DD HH:mm:ss');
-        data.data.horaLaudo = data.data.dataLaudo.slice(11);
-        console.log(data)
-        localStorage.setItem("formData",JSON.stringify(data))
+    const handleEnviar = (laudo) => {
+        laudo.data.dataLaudo = moment().format('YYYY-MM-DD HH:mm:ss');
+        laudo.data.horaLaudo = laudo.data.dataLaudo.slice(11);
+        localStorage.setItem("formData",JSON.stringify(laudo))
+        axios.get(url + "endereco/" + laudo.data.selectLoja)
+        .then(({data}) => {
+            const endereco = `${data[0].PAR_ENDERECO}, ${data[0].PAR_NUMERO} ` +
+            ` - ${data[0].PAR_BAIRRO} - ${laudo.data.selectLoja}/${data[0].PAR_UF}`;
+            updateFieldHandler("endereco", endereco);
+            updateFieldHandler("cnpjLoja", data[0].PAR_CNPJ);
+        })
         handleSubmit();
     }
 
@@ -174,7 +182,7 @@ function TodoForm({url, handleAuth}) {
 
     return (
     <div className="form-container">
-        <div class="d-grid gap-2 d-md-flex justify-content-center">
+        <div className="d-grid gap-2 d-md-flex justify-content-center">
                 <button className="btn btn-danger btn-sm" onClick={handleLogout}>Logout</button>
                 <button className="btn btn-primary btn-sm" onClick={handleGoToLaudos}>Laudos</button>
         </div>

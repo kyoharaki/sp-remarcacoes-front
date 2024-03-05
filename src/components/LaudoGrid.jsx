@@ -21,7 +21,7 @@ const LaudoGrid = ({url, handleAuth}) => {
     }
 
     const handleGoToRemarcar = () => {
-        navigate("/laudos");
+        navigate("/");
     }
 
     const [laudos, setLaudos] = useState([]);

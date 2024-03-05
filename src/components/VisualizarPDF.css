@@ -1,13 +1,8 @@
-.app {
-    padding: 2rem;
-}
-
 .page {
-    height: 11in;
+    background-color: var(--branco);
+    height: 11.5in;
     width: 8.5in;
     margin: 0 auto;
-    padding: 1.2rem;
-    border: 1px solid black;
 }
 
 .pdf {
@@ -15,27 +10,39 @@
     width: 95%;
     display: flex;
     flex-direction: column;
-    margin: 10px 10px;
-    border: 1px solid black;
+    margin: 5px 10px;
 }
 
 /* BANNER */
 
-.banner {
+.banner-pdf {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .logo-img, .logo-img img {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
 }
 
 .titulo {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     width: 75%;
+}
+
+.titulo h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.titulo h2 {
+    font-size: 16px;
+    margin: 0;
 }
 
 .remarcado-box {
@@ -53,7 +60,34 @@
 .informacao-box {
     width: 85%;
     margin: 0 auto;
-    margin-bottom: 5px;
+}
+
+.informacao-box p {
+    margin-bottom: 0;
+}
+
+/* TÍTULO DE SEÇÃO */
+
+.secao-box {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    width: 750px;
+}
+
+.secao-box p {
+    background-color: var(--azul);
+    color: var(--branco);
+    font-size: 13px;
+    margin: 0;
+    padding: 0 5px;
+    width: 30%;
+}
+
+.secao-linha {
+    width: 65%;
+    height: 50%;
+    border-bottom: 1px solid var(--preto);
 }
 
 /* DADOS DO LAUDO */
@@ -62,7 +96,7 @@
     display: flex;
     flex-direction: row;
     font-size: 12px;
-    margin-bottom: 3px;
+    margin: 2px;
 }
 
 .dados-laudo-titulo {
@@ -73,8 +107,16 @@
     align-items: flex-start;
 }
 
+.dados-laudo-titulo p {
+    margin: 0;
+}
+
 .dados-laudo-info {
     margin: 0px 15px 0px 5px;
+}
+
+.dados-laudo-info p {
+    margin: 0;
 }
 
 /* FOTOS DO LAUDO */
@@ -83,7 +125,7 @@
     display: flex;
     flex-direction: row;
     font-size: 14px;
-    margin: 15px auto;
+    margin: 5px auto;
     gap: 25px;
 }
 
@@ -97,9 +139,12 @@
 }
 
 .fotos-laudo-content img {
-    background-color: black;
-    height: 100%;
-    width: 100%;
+    height: 180px;
+    width: 300px;
+}
+
+.fotos-laudo-content p {
+    margin: 0;
 }
 
 /* DECALQUE */
@@ -108,7 +153,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+}
+
+.decalque h3 {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .decalque-box {
@@ -117,15 +166,57 @@
     height: 70px;
 }
 
-/* RODAPÉ */
+/* ASSIN. E RODAPÉ */
 
-.rodape {
+.assinatura {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 5px;
+}
+
+.assinatura-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 45px;
+}
+
+.assinatura-assinar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5px auto;
+    margin-left: 200px;
 }
 
-.rodape p {
+.assinar-linha {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.assinar-linha::before {
+    content: "";
+    width: 300px;
+    border-bottom: 1px solid var(--preto);
+    position: absolute;
+}
+
+.assinatura p {
     margin-bottom: 2px;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+    margin-top: 10px;
+}
+
+.rodape:before {
+    content: "";
+    width: 8.5in;
+    border-bottom: 1px solid var(--preto);
+    position: absolute;
 }

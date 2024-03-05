@@ -6,7 +6,8 @@
 
 .banner {
     background-color: var(--azul);
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .banner img {
@@ -42,8 +43,9 @@
 }
 
 .preview-imagem {
-    width: 150px;
+    width: 100%;
     height: 150px;
+    object-fit: contain;
 }
 
 /* Actions */

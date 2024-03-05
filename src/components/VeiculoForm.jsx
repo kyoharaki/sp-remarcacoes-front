@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
+import { FaSearch } from "react-icons/fa";
 
 const VeiculoForm = ({ url, data, updateFieldHandler }) => {
 
@@ -101,11 +102,11 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
         }
     }
 
-    const otherFieldsTrigger = async (placa) => {
-        updateFieldHandler("inputPlaca",placa);
+    const otherFieldsTrigger = async () => {
+        const placa = data.inputPlaca;
         axios(url + "veiculo/" + placa)
         .then(({data}) => SetCompletar(data));
-        updateFieldsHandler(completar[0],placa);
+        updateFieldsHandler(completar[0]);
     }
 
     return (
@@ -115,7 +116,14 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
                     <label className="form-label" htmlFor="input-placa">Placa</label>
                     <input className="form-control" type="text" name="inputPlaca" id="input-placa" 
                     value={data.inputPlaca}
-                    onChange={(e) => otherFieldsTrigger(e.target.value)}/>
+                    onChange={(e) => updateFieldHandler("inputPlaca", e.target.value)}/>
+                </div>
+                <div className="col-md-1">
+                    <label className="form-label" htmlFor="procurar-placa">...</label>
+                    <button type="button" id="procurar-placa" 
+                    className="btn btn-primary btn-sm" onClick={() => otherFieldsTrigger()}>
+                        <FaSearch />
+                    </button>
                 </div>
                 <div className="col-md-4">
                     <label className="form-label" htmlFor="input-renavam">Renavam</label>

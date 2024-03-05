@@ -8,6 +8,7 @@ import Banner from "./components/Banner";
 import LaudoGrid from './components/LaudoGrid';
 import Login from './components/Login';
 import TodoForm from "./components/TodoForm";
+import VisualizarPDF from './components/VisualizarPDF';
 import { PrivateRoute } from './util/PrivateRoute';
 import { useLocalState } from './util/useLocalState';
 
@@ -44,13 +45,18 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={
-                        <PrivateRoute auth={auth} url={url} handleAuth={handleAuth}>
+                        <PrivateRoute auth={auth}>
                             <TodoForm url={url} handleAuth={handleAuth}/>
                         </PrivateRoute>
                     }></Route>
                     <Route path="/laudos" element={
                         <PrivateRoute auth={auth}>
                             <LaudoGrid url={url} handleAuth={handleAuth}/>
+                        </PrivateRoute>
+                    }></Route>
+                    <Route path="/pdf" element={
+                        <PrivateRoute auth={auth}>
+                            <VisualizarPDF url={url}/>
                         </PrivateRoute>
                     }></Route>
                     <Route path="/login" element={<Login url={url} handleAuth={handleAuth}/>}></Route>
