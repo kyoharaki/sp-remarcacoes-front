@@ -23,11 +23,11 @@ const LaudoGrid = ({url, handleAuth}) => {
     const handleGoToRemarcar = () => {
         navigate("/form");
     }
+    const handleGoToLaudos = () => {
+        navigate("/laudos");
+    }
     const handleGoToCampinas = () => {
         navigate("/laudosC");
-    }
-    const handleGoToJundiai = () => {
-        navigate("/laudosJ");
     }
 
     const [laudos, setLaudos] = useState([]);
@@ -47,7 +47,7 @@ const LaudoGrid = ({url, handleAuth}) => {
 
     const getLaudos = async () => {
         try {
-          const res = await axios.get(url + "laudos");
+          const res = await axios.get(url + "laudosJ");
           setLaudos(res.data.sort((a,b) => (a.LAU_NUMERO < b.LAU_NUMERO ? 1 : -1)));
         } catch (error){
           alert(error);
@@ -55,7 +55,7 @@ const LaudoGrid = ({url, handleAuth}) => {
     };
 
     useEffect(() => {
-        axios.get(url + "laudos")
+        axios.get(url + "laudosJ")
         .then(res => {
             setLaudos(res.data.sort((a,b) => (a.LAU_NUMERO < b.LAU_NUMERO ? 1 : -1)))
             setLaudosInalterados(res.data.sort((a,b) => (a.LAU_NUMERO < b.LAU_NUMERO ? 1 : -1)))
@@ -64,7 +64,7 @@ const LaudoGrid = ({url, handleAuth}) => {
 
     const handleStatus = async (laudo,status) => {
         await axios
-        .put(url + "laudos/" + laudo, {
+        .put(url + "laudosJ/" + laudo, {
             LAU_STATUS: status,
         })
         .then(({data}) => alert(JSON.stringify(data)))
@@ -132,8 +132,8 @@ const LaudoGrid = ({url, handleAuth}) => {
             <div className="d-grid gap-2 d-md-flex justify-content-center">
                 <button className="btn btn-danger btn-sm" onClick={handleLogout}>Logout</button>
                 <button className="btn btn-primary btn-sm" onClick={handleGoToRemarcar}>Remarcar</button>
+                <button className="btn btn-primary btn-sm" onClick={handleGoToLaudos}>Laudos</button>
                 <button className="btn btn-primary btn-sm" onClick={handleGoToCampinas}>Campinas</button>
-                <button className="btn btn-primary btn-sm" onClick={handleGoToJundiai}>Jundiai</button>
             </div>
             <div className="filtro-box">
                 <label htmlFor="filtro-placa">PLACA</label>
@@ -166,13 +166,17 @@ const LaudoGrid = ({url, handleAuth}) => {
                 <td className={item.LAU_STATUS === "C" ? "bg-danger" : ""}>{item.LAU_STATUS}</td>
      
                 {item.LAU_STATUS === "U"
-                ? 
+                ?
                     <td className={item.LAU_STATUS === "C" ? "bg-danger" : ""}>
-                    <a href={url + "download/" + item.LAU_PLACA.toLowerCase()
+                    <a href={url + "download/d" + item.LAU_PLACA.toLowerCase()
                     + `000000${item.LAU_NUMERO}`.slice(-6) + ".pdf"} 
                     target="_blank" rel="noopener noreferrer">
-                        Laudo
-                    </a></td>
+                        Doc.</a><br/>
+                    <a href={url + "download/l" + item.LAU_PLACA.toLowerCase()
+                    + `000000${item.LAU_NUMERO}`.slice(-6) + ".pdf"} 
+                    target="_blank" rel="noopener noreferrer">
+                        Laudo</a>
+                    </td>
                 : <td className="bg-danger">-----</td>}
 
                 {item.LAU_STATUS === "C"

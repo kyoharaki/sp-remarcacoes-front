@@ -172,6 +172,13 @@ function TodoForm({url, handleAuth}) {
     const handleGoToLaudos = () => {
         navigate("/laudos");
     }
+    const handleGoToCampinas = () => {
+        navigate("/laudosC");
+    }
+    const handleGoToJundiai = () => {
+        navigate("/laudosJ");
+    }
+    
 
     const formComponents = 
     [<VeiculoForm url={url} data={data} updateFieldHandler={updateFieldHandler}/>,
@@ -185,6 +192,8 @@ function TodoForm({url, handleAuth}) {
         <div className="d-grid gap-2 d-md-flex justify-content-center">
                 <button className="btn btn-danger btn-sm" onClick={handleLogout}>Logout</button>
                 <button className="btn btn-primary btn-sm" onClick={handleGoToLaudos}>Laudos</button>
+                <button className="btn btn-primary btn-sm" onClick={handleGoToCampinas}>Campinas</button>
+                <button className="btn btn-primary btn-sm" onClick={handleGoToJundiai}>Jundiai</button>
         </div>
         <Steps currentStep={currentStep} />
         <form 
