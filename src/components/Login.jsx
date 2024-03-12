@@ -16,7 +16,7 @@ function Login({url,handleAuth}) {
         .then(res => {
             if(res.data.Status === "Sucesso"){
                 handleAuth(true);
-                navigate('/');
+                navigate('/form');
             } else {
                 handleAuth(false);
                 alert("Erro.");
