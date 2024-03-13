@@ -22,7 +22,7 @@ const ParametrosForm = ({url, data, updateFieldHandler}) => {
             <div className="col-12">
                 <label className="form-label" htmlFor="select-ciretran">CIRETRAN</label>
                 <select className="form-control" name="selectCiretran" id="select-ciretran"
-                value={data.selectCiretran || ""}
+                value={data.selectCiretran || ""} required
                 onChange={(e) => updateFieldHandler("selectCiretran", e.target.value)}>
                     <option key="--ciretran--" value="">--CIRETRAN--</option>
                     {ciretran.map(item => <option key={item.CODIGO}>
@@ -33,7 +33,7 @@ const ParametrosForm = ({url, data, updateFieldHandler}) => {
                 <div className="col-4">
                     <label className="form-label" htmlFor="select-loja">Loja</label>
                     <select className="form-control" name="selectLoja" id="select-loja"
-                    value={data.selectLoja || ""}
+                    value={data.selectLoja || ""} required
                     onChange={(e) => updateFieldHandler("selectLoja", e.target.value)}>
                         <option key="--loja--" value="">--Loja--</option>
                         {loja.map(item => <option key={item.PAR_CEP}>
@@ -43,7 +43,7 @@ const ParametrosForm = ({url, data, updateFieldHandler}) => {
                 <div className="col-4">
                     <label className="form-label" htmlFor="input-oficio">Ofício</label>
                     <input className="form-control" type="text" name="inputOficio" id="input-oficio" 
-                    value={data.inputOficio || ""}
+                    value={data.inputOficio || ""} required
                     onChange={(e) => updateFieldHandler("inputOficio", e.target.value)}/>
                 </div>
             </div>

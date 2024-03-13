@@ -115,7 +115,7 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
                 <div className="col-md-4">
                     <label className="form-label" htmlFor="input-placa">Placa</label>
                     <input className="form-control" type="text" name="inputPlaca" id="input-placa" 
-                    value={data.inputPlaca}
+                    value={data.inputPlaca} required
                     onChange={(e) => updateFieldHandler("inputPlaca", e.target.value)}/>
                 </div>
                 <div className="col-md-1">
@@ -128,7 +128,7 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
                 <div className="col-md-4">
                     <label className="form-label" htmlFor="input-renavam">Renavam</label>
                     <input className="form-control" type="text" name="inputRenavam" id="input-renavam" 
-                    value={data.inputRenavam || ""}
+                    value={data.inputRenavam || ""} required
                     onChange={(e) => updateFieldHandler("inputRenavam", e.target.value)}/>
                 </div>
             </div>
@@ -136,7 +136,7 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
                 <div className="col-md-6">
                     <label className="form-label" htmlFor="input-chassi">Nº Chassi</label>
                     <input className="form-control" type="text" name="inputChassi" id="input-chassi" 
-                    value={data.inputChassi || ""}
+                    value={data.inputChassi || ""} required
                     onChange={(e) => updateFieldHandler("inputChassi", e.target.value)}/>
                 </div>
                 <div className="col-md-6">

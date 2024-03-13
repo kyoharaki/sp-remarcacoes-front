@@ -7,14 +7,10 @@ function Home() {
     const handleGoToRemarcar = () => {
         navigate("/form");
     }
-    const handleGoToLaudos = () => {
-        navigate("/laudos");
-    }
     return (
         <div>
             <h1>Aguardando informações.</h1>
             <button className="btn btn-primary btn-sm" onClick={handleGoToRemarcar}>Remarcar</button>
-            <button className="btn btn-primary btn-sm" onClick={handleGoToLaudos}>Laudos</button>
         </div>
     );
 };

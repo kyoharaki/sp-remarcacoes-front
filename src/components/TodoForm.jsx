@@ -14,6 +14,8 @@ import Steps from "./Steps";
 //Hooks
 import { stepFormHook } from "../hooks/stepFormHook";
 
+let tmpEndereco, tmpCnpj;
+
 const formTemplate = {
     editID: "",
     inputPlaca: "",
@@ -69,15 +71,17 @@ function TodoForm({url, handleAuth}) {
     const handleEnviar = (laudo) => {
         laudo.data.dataLaudo = moment().format('YYYY-MM-DD HH:mm:ss');
         laudo.data.horaLaudo = laudo.data.dataLaudo.slice(11);
-        localStorage.setItem("formData",JSON.stringify(laudo))
         axios.get(url + "endereco/" + laudo.data.selectLoja)
         .then(({data}) => {
-            const endereco = `${data[0].PAR_ENDERECO}, ${data[0].PAR_NUMERO} ` +
+            tmpEndereco = `${data[0].PAR_ENDERECO}, ${data[0].PAR_NUMERO} ` +
             ` - ${data[0].PAR_BAIRRO} - ${laudo.data.selectLoja}/${data[0].PAR_UF}`;
-            updateFieldHandler("endereco", endereco);
-            updateFieldHandler("cnpjLoja", data[0].PAR_CNPJ);
+            tmpCnpj = data[0].PAR_CNPJ;
+            console.log(tmpEndereco,tmpCnpj);
+            laudo.data.endereco = tmpEndereco;
+            laudo.data.cnpjLoja = tmpCnpj;
+            localStorage.setItem("formData",JSON.stringify(laudo));
+            handleSubmit();
         })
-        handleSubmit();
     }
 
     const handleSubmit = async () => {

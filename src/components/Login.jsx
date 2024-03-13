@@ -1,14 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-function Login({url,handleAuth}) {
+function Login({auth, url,handleAuth}) {
     const [values, setValues] = useState({
         user: "",
         password: "",
     });
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(auth === true){
+            navigate('/form');
+        }
+    },[]);
 
     function handleSubmit(e){
         e.preventDefault();

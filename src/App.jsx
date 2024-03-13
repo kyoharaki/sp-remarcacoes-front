@@ -74,7 +74,7 @@ function App() {
                             <VisualizarPDF url={url}/>
                         </PrivateRoute>
                     }></Route>
-                    <Route path="/login" element={<Login url={url} handleAuth={handleAuth}/>}></Route>
+                    <Route path="/login" element={<Login url={url} auth={auth} handleAuth={handleAuth}/>}></Route>
                 </Routes>
             </BrowserRouter>
             <Footer />
