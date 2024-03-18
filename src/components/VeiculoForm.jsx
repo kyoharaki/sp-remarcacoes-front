@@ -43,7 +43,6 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
     const[cores,setCores] = useState([]);
     const[combustiveis,setCombustivel] = useState([]);
     const[tipos,setTipo] = useState([]);
-    const[marcmods,setMarcmod] = useState([]);
     const[especies,SetEspecie] = useState([]);
 
     const[completar,SetCompletar] = useState([]);
@@ -55,8 +54,6 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
         .then(({data})=>setCombustivel(data));
         axios(url + "tipo")
         .then(({data})=>setTipo(data));
-        axios(url + "marcmod")
-        .then(({data})=>setMarcmod(data));
         axios(url + "especie")
         .then(({data})=>SetEspecie(data));
     },[]);
@@ -79,7 +76,7 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
             updateFieldHandler("inputAnoModelo", item.VEI_ANO_MODELO);
             updateFieldHandler("selectCombustivel", item.VEI_COMBUSTIVEL);
             updateFieldHandler("selectCor", item.VEI_COR);
-            updateFieldHandler("selectMarcmod", item.VEI_MARCMOD);
+            updateFieldHandler("inputMarcmod", item.VEI_MARCMOD);
             updateFieldHandler("selectTipoRemarcacao", 
             item.VEI_TIPOREMARCACAO === 0 ? "0" : "1");
         } else{
@@ -98,7 +95,7 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
             updateFieldHandler("inputAnoModelo", "");
             updateFieldHandler("selectCombustivel", "");
             updateFieldHandler("selectCor", "");
-            updateFieldHandler("selectMarcmod", "");
+            updateFieldHandler("inputMarcmod", "");
         }
     }
 
@@ -239,15 +236,10 @@ const VeiculoForm = ({ url, data, updateFieldHandler }) => {
                 </div>
             </div>
             <div className="col-12">
-                <label className="form-label" htmlFor="select-marcmod">Marca/Modelo</label>
-                <select className="form-control" name="selectMarcmod" id="select-marcmod"
-                value={data.selectMarcmod || ""}
-                onChange={(e) => updateFieldHandler("selectMarcmod", e.target.value)}>
-                    <option key="--marcmod--" value="">--Marca/Modelo--</option>
-                    {marcmods.map(item => 
-                    <option key={item.MARCMOD_CODIGO + "-" + item.MARCMOD_DESCRICAO}>
-                        {item.MARCMOD_DESCRICAO}</option>)}
-                </select>
+                <label className="form-label" htmlFor="input-marcmod">Marca/Modelo</label>
+                <input className="form-control" type="text" name="inputMarcmod" id="input-marcmod" 
+                value={data.inputProprietario || ""}
+                onChange={(e) => updateFieldHandler("inputMarcmod", e.target.value)}/>
             </div>
             <div className="col-4">
                 <label className="form-label" htmlFor="select-tipo-remarcacao">Tipo de Remarcação</label>

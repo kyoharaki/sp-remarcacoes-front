@@ -41,7 +41,7 @@ const VisualizarPDF = ({url}) => {
         anoModelo = formData.data.inputAnoModelo;
         combustivel = formData.data.selectCombustivel;
         cor = formData.data.selectCor;
-        marcmod = formData.data.selectMarcmod;
+        marcmod = formData.data.inputMarcmod;
         tipoRemarcacao = formData.data.selectTipoRemarcacao === "0" ? "CHASSI" : "MOTOR";
         ciretran = formData.data.selectCiretran;
         loja = formData.data.selectLoja;

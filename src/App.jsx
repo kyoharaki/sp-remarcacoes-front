@@ -18,7 +18,7 @@ import Home from './components/Home';
 
 function App() {
 
-    const url = import.meta.env.VITE_REACT_APP_API_URL + "/";
+    const url = "http://" + import.meta.env.VITE_REACT_APP_API_IP + "/";
 
     axios.defaults.withCredentials = true;
 
